@@ -51,9 +51,15 @@ export const StreamPlayer = ({
   } = useViewerToken(user.id);
   const { collapsed } = useChatSidebar((state) => state);
 
-  if (!token || !name || !identity) {
-    return <StreamPlayerSkeleton />
-  }
+  console.log('ТОКЕН: ', token);
+  console.log('name: ', name);
+  console.log('identity: ', identity);
+  
+  
+  
+  // if (!token || !name || !identity) {
+  //   return <StreamPlayerSkeleton />
+  // }
 
   return (
     <>

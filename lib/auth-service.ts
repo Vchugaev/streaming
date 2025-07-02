@@ -23,10 +23,9 @@ export const getSelf = async () => {
 export const getSelfByUsername = async (username: string) => {
   const self = await currentUser();
 
-  // console.log('PENIS: ', self);
   
   
-  if (!self || !self.username) {
+  if (!self || !self?.username) {
     throw new Error("Unauthorized");
   }
 
