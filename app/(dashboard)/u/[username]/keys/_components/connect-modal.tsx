@@ -3,7 +3,6 @@
 import { toast } from "sonner";
 import { useState, useTransition, useRef, ElementRef } from "react";
 import { AlertTriangle } from "lucide-react";
-import { IngressInput } from "livekit-server-sdk";
 
 import { createIngress } from "@/actions/ingress";
 import { Button } from "@/components/ui/button";
@@ -28,8 +27,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const RTMP = String(IngressInput.RTMP_INPUT);
-const WHIP = String(IngressInput.WHIP_INPUT);
+// Замените enum на строковые константы
+const RTMP = "0"; // IngressInput.RTMP_INPUT обычно равно 0
+const WHIP = "1"; // IngressInput.WHIP_INPUT обычно равно 1
 
 type IngressType = typeof RTMP | typeof WHIP;
 
@@ -63,7 +63,7 @@ export const ConnectModal = () => {
         <Select
           disabled={isPending}
           value={ingressType}
-          onValueChange={(value) => setIngressType(value)}
+          onValueChange={(value) => setIngressType(value as IngressType)}
         >
           <SelectTrigger className="w-full">
             <SelectValue placeholder="Ingress Type" />

@@ -6,6 +6,14 @@ import { db } from '@/lib/db'
 import { resetIngresses } from '@/actions/ingress'
 
 export async function POST(req: Request) {
+
+
+
+  
+  
+  
+  
+  
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook
   const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET
  
@@ -28,6 +36,7 @@ export async function POST(req: Request) {
 
   // Get the body
   const payload = await req.json()
+  // console.log('ПРОВЕРКА СОСАЛОВО ФВЫФВФВФЫЫВФЫ: ', payload);
   const body = JSON.stringify(payload);
 
   // Create a new Svix instance with your secret.
@@ -55,7 +64,7 @@ export async function POST(req: Request) {
     await db.user.create({
       data: {
         externalUserId: payload.data.id,
-        username: payload.data.username,
+        username: payload.data.first_name,
         imageUrl: payload.data.image_url,
         stream: {
           create: {
