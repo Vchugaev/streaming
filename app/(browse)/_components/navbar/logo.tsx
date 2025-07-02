@@ -15,7 +15,7 @@ export const Logo = () => {
       <div className="flex items-center gap-x-4 hover:opacity-75 transition">
         <div className=" rounded-full p-1 mr-12 shrink-0 lg:mr-0 lg:shrink">
           <Image
-            src="https://gromer.web.app/Images/LandingPage/SVG/Symbol.svg"
+            src="/roflanebalo.png"
             alt="Gamehub"
             height="32"
             width="32"
