@@ -1,5 +1,5 @@
 import { currentUser } from "@clerk/nextjs";
-
+// @ts-ignore
 export interface NormalizedUser {
   id: string;
   username: string;
@@ -8,8 +8,8 @@ export interface NormalizedUser {
   // другие необходимые поля
 }
 
-export const getNormalizedCurrentUser = async (): Promise<NormalizedUser> => {
-  const user = await currentUser();
+export const getNormalizedCurrentUser = async () => {
+  const user: any = await currentUser();
 
   if (!user) {
     return null
