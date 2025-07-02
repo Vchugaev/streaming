@@ -71,8 +71,8 @@ export const Actions = ({
           : "fill-none"
       )} />
       {isFollowing
-        ? "Unfollow"
-        : "Follow"
+        ? "Отписаться"
+        : "Подписаться"
       }
     </Button>
   )

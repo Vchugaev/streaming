@@ -24,7 +24,7 @@ export const Recommended = ({
       {showLabel && (
         <div className="pl-6 mb-4">
           <p className="text-sm text-muted-foreground">
-            Recommended
+            Рекомендации
           </p>
         </div>
       )}

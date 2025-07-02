@@ -12,7 +12,7 @@ export const ChatHeader = () => {
         <ChatToggle />
       </div>
       <p className="font-semibold text-priamry text-center">
-        Stream Chat
+        Чат стрима
       </p>
       <div className="absolute right-2 top-2">
         <VariantToggle />

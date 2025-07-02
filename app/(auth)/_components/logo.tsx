@@ -24,10 +24,10 @@ export const Logo = () => {
         font.className,
       )}>
         <p className="text-xl font-semibold">
-          Gamehub
+          Big bro
         </p>
         <p className="text-sm text-muted-foreground">
-          Let&apos;s play
+          Стримы
         </p>
       </div>
     </div>

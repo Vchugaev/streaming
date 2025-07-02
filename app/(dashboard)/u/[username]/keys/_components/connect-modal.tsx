@@ -53,12 +53,12 @@ export const ConnectModal = () => {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="primary">
-          Generate connection
+          Сгенерировать подключение
         </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Generate connection</DialogTitle>
+          <DialogTitle>Сгенерировать подключение</DialogTitle>
         </DialogHeader>
         <Select
           disabled={isPending}
@@ -75,15 +75,15 @@ export const ConnectModal = () => {
         </Select>
         <Alert>
           <AlertTriangle className="h-4 w-4" />
-          <AlertTitle>Warning!</AlertTitle>
+          <AlertTitle>Осторожно!</AlertTitle>
           <AlertDescription>
-            This action will reset all active streams using the current connection
+            Это действие сбросит все активные потоки, использующие текущее соединение.
           </AlertDescription>
         </Alert>
         <div className="flex justify-between">
           <DialogClose ref={closeRef} asChild>
             <Button variant="ghost">
-              Cancel
+              Отмена
             </Button>
           </DialogClose>
           <Button
@@ -91,7 +91,7 @@ export const ConnectModal = () => {
             onClick={onSubmit}
             variant="primary"
           >
-            Generate
+            Генерировать
           </Button>
         </div>
       </DialogContent>

@@ -1,13 +1,29 @@
 import { currentUser } from "@clerk/nextjs";
-
 import { db } from "@/lib/db";
+import { getNormalizedCurrentUser } from "./auth-rofls";
+
+// Вспомогательная функция для получения username из данных пользователя
+function getNormalizedUsername(user: any): string {
+  if (user.username) return user.username;
+  
+  // Берем первый email, если username нет
+  const email = user.emailAddresses?.[0]?.emailAddress || user.emailAddress;
+  if (email) {
+    return email.split('@')[0];
+  }
+  
+  throw new Error("Cannot determine username - no username or email available");
+}
 
 export const getSelf = async () => {
-  const self = await currentUser();
+  const self = await getNormalizedCurrentUser();
 
-  if (!self || !self.username) {
+  if (!self) {
     throw new Error("Unauthorized");
   }
+
+  // Получаем нормализованный username
+  const username = getNormalizedUsername(self);
 
   const user = await db.user.findUnique({
     where: { externalUserId: self.id },
@@ -21,13 +37,14 @@ export const getSelf = async () => {
 };
 
 export const getSelfByUsername = async (username: string) => {
-  const self = await currentUser();
+  const self = await getNormalizedCurrentUser();
 
-  
-  
-  if (!self || !self?.username) {
+  if (!self) {
     throw new Error("Unauthorized");
   }
+
+  // Получаем нормализованный username текущего пользователя
+  const currentUsername = getNormalizedUsername(self);
 
   const user = await db.user.findUnique({
     where: { username }
@@ -37,7 +54,8 @@ export const getSelfByUsername = async (username: string) => {
     throw new Error("User not found");
   }
 
-  if (self.username !== user.username) {
+  // Сравниваем с нормализованным username
+  if (currentUsername !== user.username) {
     throw new Error("Unauthorized");
   }
 

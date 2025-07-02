@@ -44,8 +44,9 @@ export const resetIngresses = async (hostIdentity: string) => {
 export const createIngress = async (ingressType: IngressInput) => {
   const self = await getSelf();
 
-  await resetIngresses(self.id);
-
+  // await resetIngresses(self.id);
+  
+  await resetAllIngressesAndRooms();
   const options: any = {
     name: self.username,
     roomName: self.id,
@@ -86,4 +87,36 @@ export const createIngress = async (ingressType: IngressInput) => {
 
   revalidatePath(`/u/${self.username}/keys`);
   return ingress;
+};
+
+
+
+
+
+
+
+
+
+export const resetAllIngressesAndRooms = async () => {
+  try {
+    // 1. Удаляем все ingress-объекты
+    const allIngresses = await ingressClient.listIngress();
+    await Promise.all(
+      allIngresses.map(ingress => 
+        ingress.ingressId ? ingressClient.deleteIngress(ingress.ingressId) : Promise.resolve()
+      )
+    );
+
+    // 2. Удаляем все комнаты
+    const allRooms = await roomService.listRooms();
+    await Promise.all(
+      allRooms.map(room => roomService.deleteRoom(room.name))
+    );
+
+    console.log("All ingresses and rooms have been deleted");
+    return { success: true };
+  } catch (error) {
+    console.error("Error resetting all ingresses and rooms:", error);
+    return { success: false, error: error instanceof Error ? error.message : "Unknown error" };
+  }
 };

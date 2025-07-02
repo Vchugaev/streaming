@@ -67,7 +67,7 @@ export const Header = ({
             </div>
           ) : (
             <p className="font-semibold text-xs text-muted-foreground">
-              Offline
+              Офлайн
             </p>
           )}
         </div>

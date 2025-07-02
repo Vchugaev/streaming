@@ -19,7 +19,7 @@ export const ChatList = ({
     return (
       <div className="flex flex-1 items-center justify-center">
         <p className="text-sm text-muted-foreground">
-          {isHidden ? "Chat is disabled" : "Welcome to the chat!"}
+          {isHidden ? "Чат отключён" : "Доброо пожаловать в чат!"}
         </p>
       </div>
     )

@@ -20,7 +20,7 @@ export const KeyCard = ({
     <div className="rounded-xl bg-muted p-6">
       <div className="flex items-start gap-x-10">
         <p className="font-semibold shrink-0">
-          Stream Key
+          Ключ стрима
         </p>
         <div className="space-y-2 w-full">
           <div className="w-full flex items-center gap-x-2">
@@ -37,7 +37,7 @@ export const KeyCard = ({
             size="sm"
             variant="link"
           >
-            {show ? "Hide" : "Show"}
+            {show ? "Скрыть" : "Показать"}
           </Button>
         </div>
       </div>

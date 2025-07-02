@@ -16,7 +16,7 @@ export const Logo = () => {
         <div className="bg-white rounded-full p-1 mr-12 shrink-0 lg:mr-0 lg:shrink">
           <Image
             src="/spooky.svg"
-            alt="Gamehub"
+            alt="Bro"
             height="32"
             width="32"
           />
@@ -26,10 +26,10 @@ export const Logo = () => {
           font.className
         )}>
           <p className="text-lg font-semibold">
-            Gamehub
+            Big Bro
           </p>
           <p className="text-xs text-muted-foreground">
-            Creator dashboard
+            Панель управления
           </p>
         </div>
       </div>
