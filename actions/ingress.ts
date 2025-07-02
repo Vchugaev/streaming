@@ -6,10 +6,10 @@ import {
   IngressClient,
   IngressVideoEncodingPreset,
   RoomServiceClient,
+  TrackSource,
   type CreateIngressOptions,
 } from "livekit-server-sdk";
 
-import { TrackSource } from "livekit-server-sdk";
 
 import { db } from "@/lib/db";
 import { getSelf } from "@/lib/auth-service";
@@ -46,7 +46,7 @@ export const createIngress = async (ingressType: IngressInput) => {
 
   await resetIngresses(self.id);
 
-  const options: CreateIngressOptions = {
+  const options: any = {
     name: self.username,
     roomName: self.id,
     participantName: self.username,
