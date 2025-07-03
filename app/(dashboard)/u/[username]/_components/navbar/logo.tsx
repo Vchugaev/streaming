@@ -26,7 +26,7 @@ export const Logo = () => {
           font.className
         )}>
           <p className="text-lg font-semibold">
-            Big Bro
+            MyStream
           </p>
           <p className="text-xs text-muted-foreground">
             Панель управления

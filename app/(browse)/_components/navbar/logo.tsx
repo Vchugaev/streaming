@@ -26,10 +26,10 @@ export const Logo = () => {
           font.className
         )}>
           <p className="text-lg font-semibold">
-            Z streams
+            MyStream
           </p>
           <p className="text-xs text-muted-foreground">
-            стримы большого бро
+            стримы 
           </p>
         </div>
       </div>

@@ -24,7 +24,7 @@ export const Logo = () => {
         font.className,
       )}>
         <p className="text-xl font-semibold">
-          Big bro
+          MyStream
         </p>
         <p className="text-sm text-muted-foreground">
           Стримы
